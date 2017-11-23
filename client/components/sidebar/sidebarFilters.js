@@ -11,6 +11,16 @@ BlazeComponent.extendComponent({
         Filter.members.toggle(this.currentData()._id);
         Filter.resetExceptions();
       },
+      'click .js-toggle-spentTime-filter'(evt) {
+        evt.preventDefault();
+        Filter.spentTime.toggle();
+        Filter.resetExceptions();
+      },
+      'click .js-toggle-overtime-filter'(evt) {
+        evt.preventDefault();
+        Filter.isOvertime.toggle();
+        Filter.resetExceptions();
+      },
       'click .js-clear-all'(evt) {
         evt.preventDefault();
         Filter.reset();

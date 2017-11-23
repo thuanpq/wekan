@@ -40,6 +40,28 @@ template(name="filterSidebar")
               | (<span class="username">{{ username }}</span>)
             if Filter.members.isSelected _id
               i.fa.fa-check
+
+    hr
+    li
+      a.name
+        span.sidebar-list-item-description
+          | {{_ 'filter-no-spenttime'}}
+    li(class="{{#if Filter.isOvertime.isSelected}}active{{/if}}")
+      a.name.js-toggle-overtime-filter
+        span.card-label.square(class="card-label-red")
+        span.sidebar-list-item-description
+          span.quiet {{_ "has-overtime-cards"}}
+        if Filter.isOvertime.isSelected
+          i.fa.fa-check
+
+    li(class="{{#if Filter.spentTime.isSelected}}active{{/if}}")
+      a.name.js-toggle-spentTime-filter
+        span.card-label.square(class="card-label-green")
+        span.sidebar-list-item-description
+          span.quiet {{_ "has-spenttime-cards"}}
+        if Filter.spentTime.isSelected
+          i.fa.fa-check
+
   if Filter.isActive
     hr
     a.sidebar-btn.js-clear-all
